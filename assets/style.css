@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;600;700&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 16px;
+}
+body, button{
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+ul, header, header article:last-child, header article:first-child, .imgsProduct section:last-child, main, .salePrice, .articleQuant, .quantAndButton{
+    align-items: center;
+    display: flex;
+}
+.imgMain, .imgsProduct span, aside, aside span{
+    width: 100%;
+}
+h2, h3{
+    margin: 0;
+}
+main{
+    margin-top: 5em;
+    justify-content: center;
+}
+main section:first-child{
+    margin-right: 6.9em;
+}
+header{
+    justify-content: space-between;
+    margin: 1.2em 12em 0 12em;
+    border-bottom: 1px solid #b6bcc855;
+    padding-bottom: 2em;
+}
+header article:last-child img:last-child{
+    width: 2.6875em;
+    height: 2.6875em;
+}
+.cart{
+    width: 1.25em;
+    height: 1.25em;
+}
+ul{
+    list-style: none;
+}
+li, .descr{
+    color: hsl(219, 9%, 45%);
+}
+li{
+    font-size: .9em;
+}
+li:not(:last-child){
+    margin-right: 1.75em;
+}
+
+.imgsProduct{
+    width: 24.25em;
+}
+.imgsProduct img, .imgsProduct span, .percentage, button{
+    border-radius: .5em;
+}
+.imgsProduct section:first-child{
+    margin: 0 0 1.5em 0;
+}
+.imgsProduct section:last-child img{
+    width: 4.9em;
+}
+.imgsProduct section:last-child article, .quantCart, .left, .right{
+    position: relative;
+}
+.imgsProduct span{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4.9em;
+    background: #ffffff77;
+}
+.imgsProduct img:hover+span, .imgsProduct span:hover{
+    display: block;
+}
+.imgsProduct section:last-child{
+    justify-content: space-between;
+}
+
+h1{
+    margin: .2em 0 .6em;
+    font-size: 2.5em;
+    max-width: 10em;
+}
+.descr{
+    max-width: 27em;
+    margin-bottom: 1.7em;
+}
+
+.company, .percentage{
+    color: hsl(26, 100%, 55%);
+}
+.company{
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+}
+
+.percentage, .articleQuant p, .quantCart span, button{
+    font-weight: 700;
+}
+.percentage{
+    margin-left: 1em;
+    padding: .2em .5em;
+    background: #F9F0E9;
+}
+
+s{
+    color: hsl(220, 14%, 75%);
+    font-size: .8em;
+}
+
+.articleQuant p{
+    margin: 0 2em;
+}
+
+.quantCart{
+    margin-right: 2em;
+}
+.quantCart span{
+    display: none;
+}
+
+button{
+    border: none;
+    background: hsl(26, 100%, 55%);
+    color: white;
+    padding: 1em 5em;
+}
+
+main button{
+    box-shadow: 0 .5em 2em -5px hsl(26, 100%, 55%);
+}
+button svg path{
+    transform: scale(.7641);
+    fill: white;
+}
+button svg{
+    transform: translate(-50%, 20%);
+}
+
+.quantAndButton{
+    margin-top: 2em;
+}
+.quantAndButton button{
+    margin-left: 2.5em;
+}
+
+.avatar:hover{
+    outline: 2px solid hsl(26, 100%, 55%);
+    border-radius: 50%;
+}
+
+li{
+    color: hsl(220, 13%, 13%);
+}
+li:hover::after{
+    content: "";
+    position: absolute;
+    top: 6.8em;
+    background: hsl(26, 100%, 55%);
+    height: .2em;
+}
+li:hover{
+    font-weight: 600;
+}
+li:first-child:hover::after{
+    transform: translateX(-97%);
+    width: 5.3em;
+}
+li:nth-child(2):hover::after{
+    transform: translateX(-82%);
+    width: 2.8em;
+}
+li:nth-child(3):hover::after, li:last-child:hover::after{
+    width: 4em;
+}
+li:nth-child(3):hover::after{
+    transform: translateX(-97%);
+}
+li:nth-child(4):hover::after{
+    transform: translateX(-90%);
+    width: 3.5em;
+}
+li:last-child:hover::after{
+    transform: translateX(-97%);
+}
+
+.quantCart:hover span{
+    display: block;
+    top: -.3em;
+    right: -.5em;
+    color: white;
+    border-radius: 20px;
+    position: absolute;
+    font-size: .6em;
+    padding: 0 .5em;
+    background: hsl(26, 100%, 55%);
+}
+li, .avatar, .cart, .imgsProduct img, button, .quantCart, .articleQuant img, .imgsProduct span, .right, .left, .articleX{
+    cursor: pointer;
+}
+button:hover{
+    background: #FFAC6A;
+}
+
+aside{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+aside>span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    min-height: 100vh;
+    background: hsla(0, 0%, 0%, 0.8);
+}
+aside .imgsProduct {
+    width: 30em;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    z-index: 3;
+}
+.imgsProductAside img{
+    cursor: auto;
+}
+.imgsProductAside section:first-of-type{
+    margin-bottom: 2em;
+}
+aside .imgsProduct section:last-child{
+    justify-content: space-evenly;
+}
+
+.right, .left{
+    position: absolute;
+    display: inline-block;
+    border-radius: 50%;
+    background: white;
+    padding: 1.5em;
+    top: 40%;
+}
+.left{
+    left: -1.5em;
+}
+.right{
+    right: -1.5em;
+}
+.left span, .right span{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 0;
+    background: none;
+    border: 3px solid black;
+    border-right: none;
+    border-top: none;
+}
+.left span{
+    transform: translate(150%, 130%) rotate(45deg);
+}
+.right span{
+    transform: translate(110%, 130%) rotate(225deg);
+}
+
+.articleX{
+    position: absolute;
+    top: -3em;
+    left: 98%;
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+.articleX:hover .X1, .articleX:hover .X2, .imgsProduct article:hover span, button{
+    transition: .4s;
+}
+.articleX:hover .X1, .articleX:hover .X2{
+    background: hsl(26, 100%, 55%);
+}
+.imgsProduct article:hover span{
+    border-color: hsl(26, 100%, 55%);
+}
+.X1{
+    display: block;
+    width: 4px;
+    height: 25px;
+    transform: rotate(45deg);
+    background: white;
+}
+.X2{
+    position: absolute;
+    top: 0;
+    display: block;
+    width: 4px;
+    height: 25px;
+    transform: rotate(-45deg);
+    background: white;
+}
