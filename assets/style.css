@@ -56,6 +56,9 @@ li:not(:last-child){
 .imgsProduct{
     width: 24.25em;
 }
+.imgsProduct section:last-child img.selected{
+    outline: 2px solid hsl(26, 100%, 55%);
+}
 .imgsProduct img, .imgsProduct span, .percentage, button{
     border-radius: .5em;
 }
@@ -76,7 +79,7 @@ li:not(:last-child){
     height: 4.9em;
     background: #ffffff77;
 }
-.imgsProduct img:hover+span, .imgsProduct span:hover{
+.imgsProduct img:hover+span, .imgsProduct span:hover, .imgsProduct section:last-child img.selected+span{
     display: block;
 }
 .imgsProduct section:last-child{
@@ -130,7 +133,7 @@ s{
 button{
     border: none;
     background: hsl(26, 100%, 55%);
-    color: white;
+    color: #FFF;
     padding: 1em 5em;
 }
 
@@ -139,7 +142,7 @@ main button{
 }
 button svg path{
     transform: scale(.7641);
-    fill: white;
+    fill: #FFF;
 }
 button svg{
     transform: translate(-50%, 20%);
@@ -196,7 +199,7 @@ li:last-child:hover::after{
     display: block;
     top: -.3em;
     right: -.5em;
-    color: white;
+    color: #FFF;
     border-radius: 20px;
     position: absolute;
     font-size: .6em;
@@ -211,6 +214,7 @@ button:hover{
 }
 
 aside{
+    display: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -223,7 +227,7 @@ aside>span{
     min-height: 100vh;
     background: hsla(0, 0%, 0%, 0.8);
 }
-aside .imgsProduct {
+.imgsProductAside {
     width: 30em;
     position: absolute;
     left: 50%;
@@ -244,7 +248,7 @@ aside .imgsProduct section:last-child{
     position: absolute;
     display: inline-block;
     border-radius: 50%;
-    background: white;
+    background: #FFF;
     padding: 1.5em;
     top: 40%;
 }
@@ -293,7 +297,7 @@ aside .imgsProduct section:last-child{
     width: 4px;
     height: 25px;
     transform: rotate(45deg);
-    background: white;
+    background: #FFF;
 }
 .X2{
     position: absolute;
@@ -302,5 +306,5 @@ aside .imgsProduct section:last-child{
     width: 4px;
     height: 25px;
     transform: rotate(-45deg);
-    background: white;
+    background: #FFF;
 }
