@@ -1,23 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;600;700&display=swap');
 
 body{
-    margin: 0;
     padding: 0;
     font-family: 16px;
 }
+
+body, h2, h3, .company, .listProduct>article p{
+    margin: 0;
+}
+
 body, button{
     font-family: "Kumbh Sans", sans-serif;
 }
 
-ul, header, header article:last-child, header article:first-child, .imgsProduct section:last-child, main, .salePrice, .articleQuant, .quantAndButton{
+ul, header, header article:last-child, header article:first-child, .imgsProduct section:last-child, main, .salePrice, .articleQuant, .quantAndButton, .ballonCartPrice, .listProduct{
     align-items: center;
     display: flex;
 }
-.imgMain, .imgsProduct span, aside, aside span{
+.imgMain, .imgsProduct span, aside, aside span, hr, .ballonCart>article p, .listProduct>article>article{
     width: 100%;
-}
-h2, h3{
-    margin: 0;
 }
 main{
     margin-top: 5em;
@@ -27,7 +28,6 @@ main section:first-child{
     margin-right: 6.9em;
 }
 header{
-    justify-content: space-between;
     margin: 1.2em 12em 0 12em;
     border-bottom: 1px solid #b6bcc855;
     padding-bottom: 2em;
@@ -37,8 +37,14 @@ header article:last-child img:last-child{
     height: 2.6875em;
 }
 .cart{
-    width: 1.25em;
+    width: 1.30em;
     height: 1.25em;
+}
+.quantCart .cart path{
+    transform: scale(.97);
+}
+.quantCart .cart:hover path{
+    fill: hsl(220, 13%, 13%);
 }
 ul{
     list-style: none;
@@ -59,7 +65,10 @@ li:not(:last-child){
 .imgsProduct section:last-child img.selected{
     outline: 2px solid hsl(26, 100%, 55%);
 }
-.imgsProduct img, .imgsProduct span, .percentage, button{
+img:not(img[src$=".svg"]){
+    border-radius: .4em;
+}
+.imgsProduct span, .percentage, button, .ballonCart{
     border-radius: .5em;
 }
 .imgsProduct section:first-child{
@@ -71,9 +80,11 @@ li:not(:last-child){
 .imgsProduct section:last-child article, .quantCart, .left, .right{
     position: relative;
 }
+.imgsProduct span, li::after, .quantCart span, aside, aside>span, .imgsProductAside, .right, .left, .articleX, .X2, .ballonCart{
+    position: absolute;
+}
 .imgsProduct span{
     display: none;
-    position: absolute;
     top: 0;
     left: 0;
     height: 4.9em;
@@ -82,7 +93,7 @@ li:not(:last-child){
 .imgsProduct img:hover+span, .imgsProduct span:hover, .imgsProduct section:last-child img.selected+span{
     display: block;
 }
-.imgsProduct section:last-child{
+header, .imgsProduct section:last-child, .listProduct{
     justify-content: space-between;
 }
 
@@ -100,12 +111,11 @@ h1{
     color: hsl(26, 100%, 55%);
 }
 .company{
-    margin: 0;
     text-transform: uppercase;
     letter-spacing: .1em;
 }
 
-.percentage, .articleQuant p, .quantCart span, button{
+.percentage, .articleQuant p, .quantCart span, button, .ballonCart>article p{
     font-weight: 700;
 }
 .percentage{
@@ -163,9 +173,8 @@ button svg{
 li{
     color: hsl(220, 13%, 13%);
 }
-li:hover::after{
+li::after{
     content: "";
-    position: absolute;
     top: 6.8em;
     background: hsl(26, 100%, 55%);
     height: .2em;
@@ -195,13 +204,12 @@ li:last-child:hover::after{
     transform: translateX(-97%);
 }
 
-.quantCart:hover span{
+.quantCart svg:hover+#quantCartSpan{
     display: block;
     top: -.3em;
     right: -.5em;
     color: #FFF;
     border-radius: 20px;
-    position: absolute;
     font-size: .6em;
     padding: 0 .5em;
     background: hsl(26, 100%, 55%);
@@ -215,12 +223,10 @@ button:hover{
 
 aside{
     display: none;
-    position: absolute;
     top: 0;
     left: 0;
 }
 aside>span{
-    position: absolute;
     top: 0;
     left: 0;
     z-index: 2;
@@ -229,7 +235,6 @@ aside>span{
 }
 .imgsProductAside {
     width: 30em;
-    position: absolute;
     left: 50%;
     transform: translate(-50%, 20%);
     z-index: 3;
@@ -245,7 +250,6 @@ aside .imgsProduct section:last-child{
 }
 
 .right, .left{
-    position: absolute;
     display: inline-block;
     border-radius: 50%;
     background: #FFF;
@@ -276,14 +280,13 @@ aside .imgsProduct section:last-child{
 }
 
 .articleX{
-    position: absolute;
     top: -3em;
     left: 98%;
     display: block;
     width: 20px;
     height: 20px;
 }
-.articleX:hover .X1, .articleX:hover .X2, .imgsProduct article:hover span, button{
+.articleX:hover .X1, .articleX:hover .X2, .imgsProduct article:hover span, button, path{
     transition: .4s;
 }
 .articleX:hover .X1, .articleX:hover .X2{
@@ -300,11 +303,49 @@ aside .imgsProduct section:last-child{
     background: #FFF;
 }
 .X2{
-    position: absolute;
     top: 0;
     display: block;
     width: 4px;
     height: 25px;
     transform: rotate(-45deg);
     background: #FFF;
+}
+
+.ballonCart{
+    padding: 1em;
+    width: 18.8em;
+    top: 200%;
+    left: -700%;
+    background: #fff;
+    box-shadow: -.3em 1em 2em -.1em rgba(0, 0, 0, 0.24);
+}
+hr{
+    border: none;
+    height: 1px;
+    background: hsl(210, 5%, 85%);
+}
+.ballonProductImg{
+    width: 2.8em;
+    height: 2.8em;
+}
+.ballonCart button{
+    width: 100%;
+    height: 4.2em;
+}
+.ballonCart>article, .listProduct>article{
+    flex-direction: column;
+}
+.listProduct{
+    margin: 1em 0;
+}
+.delete{
+    width: 1em !important;
+    height: 1.1em !important;
+}
+.ballonCart>article p{
+    margin: .2em 0;
+}
+
+strong::before{
+    content: "$";
 }

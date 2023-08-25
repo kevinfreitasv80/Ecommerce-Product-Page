@@ -2,11 +2,15 @@ const plus = document.querySelector(".plus");
 const minus = document.querySelector(".minus");
 const articleX = document.querySelector(".articleX");
 const imgMain = document.querySelectorAll(".imgMain");
+const quantBallonCart = document.querySelector(".quantBallonCart");
+const addCart = document.getElementById("addCart");
 const aside = document.querySelector("aside");
+const priceTotal = document.querySelector("strong");
 const productSelect = document.querySelectorAll(".imgsProduct>section:last-child article");
 const imgsProductSelect = document.querySelectorAll(".imgsProduct>section:last-child article img");
 const quantP = document.getElementById("quantP");
 const quantCartSpan = document.getElementById("quantCartSpan");
+const priceProduct = 125;
 let quantProduct = 0;
 
 const quant = (...val) => val.forEach(element => element.textContent = quantProduct);
@@ -18,6 +22,7 @@ plus.addEventListener("click", () => {
 });
 minus.addEventListener("click", () => {
     if (quantProduct < 1) {
+        priceTotal.textContent = 0;
     }else{
         quantProduct--;
         quant(quantCartSpan, quantP);
@@ -31,6 +36,12 @@ articleX.addEventListener("click", () => {
 });
 imgMain[0].addEventListener("click", () => {
     aside.style.display = "block";
+});
+addCart.addEventListener("click", () => {
+    if (quantProduct > 0) {
+        quant(quantBallonCart);
+        priceTotal.textContent = parseFloat(priceProduct * quantProduct);
+    }
 });
 for (let i = 0; i < productSelect.length; i++) {
     productSelect[i].addEventListener("click", function(){
