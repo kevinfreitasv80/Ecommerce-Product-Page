@@ -204,8 +204,8 @@ li:last-child:hover::after{
     transform: translateX(-97%);
 }
 
-.quantCart svg:hover+#quantCartSpan{
-    display: block;
+#quantCartSpan{
+    display: none;
     top: -.3em;
     right: -.5em;
     color: #FFF;
@@ -312,6 +312,7 @@ aside .imgsProduct section:last-child{
 }
 
 .ballonCart{
+    display: none;
     padding: 1em;
     width: 18.8em;
     top: 200%;
@@ -348,4 +349,13 @@ hr{
 
 strong::before{
     content: "$";
+}
+.ballonCart section, .ballonCart button{
+    display: none;
+}
+.emptyP{
+    padding: 3em 0;
+    text-align: center;
+    font-weight: 700;
+    color: hsl(219, 9%, 45%);
 }
