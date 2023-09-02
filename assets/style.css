@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;600;700&display=swap');
 
-body{
+html, body{
     padding: 0;
-    font-family: 16px;
 }
 
-body, h2, h3, .company, .listProduct>article p{
+html, body, h2, h3, .company, .listProduct>article p{
     margin: 0;
 }
 
@@ -24,9 +23,6 @@ main{
     margin-top: 5em;
     justify-content: center;
 }
-main section:first-child{
-    margin-right: 6.9em;
-}
 header{
     margin: 1.2em 12em 0 12em;
     border-bottom: 1px solid #b6bcc855;
@@ -43,7 +39,7 @@ header article:last-child img:last-child{
 .quantCart .cart path{
     transform: scale(.97);
 }
-.quantCart .cart:hover path{
+.quantCart .cart:hover path, .quantCart:focus .cart path{
     fill: hsl(220, 13%, 13%);
 }
 ul{
@@ -61,6 +57,7 @@ li:not(:last-child){
 
 .imgsProduct{
     width: 24.25em;
+    margin-right: 6.9em;
 }
 .imgsProduct section:last-child img.selected{
     outline: 2px solid hsl(26, 100%, 55%);
@@ -77,14 +74,13 @@ img:not(img[src$=".svg"]){
 .imgsProduct section:last-child img{
     width: 4.9em;
 }
-.imgsProduct section:last-child article, .quantCart, .left, .right{
+.imgsProduct section:last-child article, .quantCart{
     position: relative;
 }
-.imgsProduct span, li::after, .quantCart span, aside, aside>span, .imgsProductAside, .right, .left, .articleX, .X2, .ballonCart{
+.imgsProduct span, li::after, .quantCart span, aside, aside>span, .imgsProductAside, .right, .left, .articleX, .X2, .ballonCart, .articleIconMenu img{
     position: absolute;
 }
 .imgsProduct span{
-    display: none;
     top: 0;
     left: 0;
     height: 4.9em;
@@ -95,6 +91,10 @@ img:not(img[src$=".svg"]){
 }
 header, .imgsProduct section:last-child, .listProduct{
     justify-content: space-between;
+}
+
+.imgsProduct span, .quantCart span, #quantCartSpan, aside, .ballonCart, .ballonCart section, .ballonCart button, img[src$="close.svg"]{
+    display: none;
 }
 
 h1{
@@ -136,9 +136,6 @@ s{
 .quantCart{
     margin-right: 2em;
 }
-.quantCart span{
-    display: none;
-}
 
 button{
     border: none;
@@ -179,33 +176,32 @@ li::after{
     background: hsl(26, 100%, 55%);
     height: .2em;
 }
-li:hover{
+li:hover, li:hover{
     font-weight: 600;
 }
-li:first-child:hover::after{
+li:first-child:hover::after, li:first-child:focus::after{
     transform: translateX(-97%);
     width: 5.3em;
 }
-li:nth-child(2):hover::after{
+li:nth-child(2):hover::after, li:nth-child(2):focus::after{
     transform: translateX(-82%);
     width: 2.8em;
 }
-li:nth-child(3):hover::after, li:last-child:hover::after{
+li:nth-child(3):hover::after, li:nth-child(3):focus::after, li:last-child:hover::after, li:last-child:focus::after{
     width: 4em;
 }
-li:nth-child(3):hover::after{
+li:nth-child(3):hover::after, li:nth-child(3):focus::after{
     transform: translateX(-97%);
 }
-li:nth-child(4):hover::after{
+li:nth-child(4):hover::after, li:nth-child(4):focus::after{
     transform: translateX(-90%);
     width: 3.5em;
 }
-li:last-child:hover::after{
+li:last-child:hover::after, li:last-child:focus::after{
     transform: translateX(-97%);
 }
 
 #quantCartSpan{
-    display: none;
     top: -.3em;
     right: -.5em;
     color: #FFF;
@@ -214,7 +210,7 @@ li:last-child:hover::after{
     padding: 0 .5em;
     background: hsl(26, 100%, 55%);
 }
-li, .avatar, .cart, .imgsProduct img, button, .quantCart, .articleQuant img, .imgsProduct span, .right, .left, .articleX{
+li, .avatar, .cart, .imgsProduct img, button, .quantCart, .articleQuant img, .imgsProduct span, .right, .left, .articleX, .articleIconMenu img{
     cursor: pointer;
 }
 button:hover{
@@ -222,7 +218,6 @@ button:hover{
 }
 
 aside{
-    display: none;
     top: 0;
     left: 0;
 }
@@ -249,17 +244,21 @@ aside .imgsProduct section:last-child{
     justify-content: space-evenly;
 }
 
+main .right, main .left{
+    display: none;
+}
 .right, .left{
     display: inline-block;
     border-radius: 50%;
     background: #FFF;
     padding: 1.5em;
     top: 40%;
+    z-index: 2;
 }
-.left{
+aside .left{
     left: -1.5em;
 }
-.right{
+aside .right{
     right: -1.5em;
 }
 .left span, .right span{
@@ -312,7 +311,7 @@ aside .imgsProduct section:last-child{
 }
 
 .ballonCart{
-    display: none;
+    z-index: 3;
     padding: 1em;
     width: 18.8em;
     top: 200%;
@@ -350,12 +349,195 @@ hr{
 strong::before{
     content: "$";
 }
-.ballonCart section, .ballonCart button{
-    display: none;
-}
 .emptyP{
     padding: 3em 0;
     text-align: center;
     font-weight: 700;
     color: hsl(219, 9%, 45%);
+}
+.menu{
+    transform: translateY(2px);
+}
+.articleIconMenu{
+    margin-right: 2em;
+}
+.articleIconMenu img{
+    z-index: 5;
+}
+img[src$="close.svg"]{
+    width: 1em;
+}
+
+@media (max-width: 1190px) {
+    header{
+        margin: 1.2em 7em 0;
+    }
+}
+@media (min-width: 870px) {
+    .menu, .articleIconMenu img{
+        display: none;
+    }
+}
+@media (max-width: 980px) {
+    .imgsProduct{
+        margin-right: 2em;
+    }
+}
+@media (max-width: 870px) {
+    nav{
+        display: none;
+        background: white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding:  0 4em 100vh 0;
+        overflow: hidden;
+        z-index: 4;
+        box-shadow: 0 0 0 900em rgba(0, 0, 0, 0.685);
+    }
+    nav ul{
+        margin:  5em 0 0 .5em;
+        display: grid;
+    }
+    .quantAndButton{
+        display: grid;
+    }
+    .articleQuant{
+        justify-content: space-around;
+        margin-bottom: 2em;
+    }
+    #addCart{
+        margin: 0;
+        width: 100%;
+    }
+    li, li:hover{
+        font-weight: 700;
+    }
+    li:not(:last-child){
+        margin-bottom: 1em;
+    }
+    main{
+        width: 100%;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .muchText{
+        max-width: 22em;
+    }
+    .descr, h1, main>section:last-child, .quantAndButton, h5, .muchText{
+        display: inline-block;
+    }
+    header{
+        margin: 1.2em 3em 0;
+    }
+    main>section{
+        margin-bottom: 1.3em;
+    }
+    li::after{
+        display: none;
+    }
+    header{
+        border: none;
+    }
+    .imgMain{
+        cursor: default;
+    }
+    .descr{
+        max-width: 22em;
+    }
+    h1{
+        font-size: 2em;
+    }
+    .ballonCart{
+        position: absolute;
+        left: -39em;
+        width: 45em;
+    }
+    .muchText+article, .quantAndButton{
+        justify-content: space-between;
+        width: 100%;
+    }
+    .muchText+article{
+        display: flex;
+        align-items: center;
+    }
+    main, .imgsProduct{
+        margin: 0;
+    }
+    .imgsProduct{
+        margin-bottom: 1em;
+    }
+}
+@media (max-width: 805px) {
+    .ballonCart{
+        left: -32em;
+        width: 35em;
+    }
+}
+@media (max-width: 695px) {
+    .ballonCart{
+        left: -22.5em;
+        width: 20em;
+    }
+}
+@media (max-width: 640px) {
+    .ballonCart{
+        left: -20em;
+    }
+}
+@media (max-width: 545px) {
+    .ballonCart{
+        left: -17em;
+    }
+}
+@media (max-width: 465px) {
+    .ballonCart{
+        left: -14em;
+    }
+}
+@media (max-width: 415px) {
+    .ballonCart{
+        left: -64vw;
+    }
+    header{
+        margin: 0;
+        padding: 1em;
+    }
+    .imgsProduct{
+        position: relative;
+        width: 95vw;
+        margin-bottom: 0;
+    }
+    main .imgsProduct img{
+        border-radius: 0;
+    }
+    main .left, main .right{
+        position: absolute;
+        top: 45%;
+        display: block;
+    }
+    main .right{
+        margin-left: 80vw;
+    }
+    main .left{
+        margin-left: 2vw;
+    }
+    .imgsProduct section:last-child{
+        display: none;
+    }
+    .descr{
+        line-height: 1.5em;
+    }
+    h1{
+        margin-bottom: 0;
+    }
+    main>section:last-child{
+        width: 90%;
+    }
+}
+@media (max-width: 385px) {
+    .ballonCart{
+        width: 18em;
+        left: -61.5vw;
+    }
 }
