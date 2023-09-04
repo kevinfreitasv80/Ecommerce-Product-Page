@@ -541,3 +541,9 @@ img[src$="close.svg"]{
         left: -61.5vw;
     }
 }
+@media (max-width: 340px) {
+    .ballonCart{
+        width: 15em;
+        left: -55vw;
+    }
+}
